@@ -1,0 +1,15 @@
+.home,
+.movies {
+    text-decoration: none;
+    font-size: 20px;
+    color: aqua;
+}
+.home {
+    margin-right: 15px;
+}
+.activeLink {
+    text-decoration: none;
+    font-size: 20px;
+    color:blue;
+    margin-right: 15px;
+}
