@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-// import axios from 'axios';
 import * as api from 'servises/api';
 import { useLocation  } from 'react-router-dom';
 import TrendMovies from 'components/TrendMovies/TrendMovies'
