@@ -3,6 +3,7 @@ import Navigation from './Navigation/Navigation'
 import { ToastContainer } from 'react-toastify';
 import Home from './views/Home/Home';
 import Search from './views/Search/Search'
+// import NotFound from './views/NotFound/NotFound'
 
 
 export const App = () => {
@@ -13,6 +14,7 @@ export const App = () => {
     <Routes>
 <Route path="/" element={<Home />} />
 <Route path="/movies" element={<Search />} />
+{/* <Route path="*" element={<NotFound />} /> */}
 </Routes> 
 
       

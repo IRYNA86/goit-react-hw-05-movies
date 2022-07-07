@@ -1,32 +1,32 @@
-import {useState, useEffect} from 'react';
-import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+// import axios from 'axios';
+import * as api from 'servises/api';
+import { useLocation  } from 'react-router-dom';
+import TrendMovies from 'components/TrendMovies/TrendMovies'
 
-function Home(){
-    const [data, setData] = useState({ results: [] });
+function Home() {
+  const [data, setData] = useState({ results: [] });
+  const location = useLocation();
 
-    useEffect(() => {
-      const fetchData = async () => {
-        const result = await axios(
-          'https://api.themoviedb.org/3/trending/all/day?api_key=255c87d9189641f6fa37fc4c55a9531c',
-        );
-  
-  setData(result.data)
-        
-  
-      };
-  
-      fetchData();
-    }, []);
-  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await api.getTrendingMovies();
+        if (result.length === 0) {
+          return;
+        }
+        setData(result.data);
+      } catch (error) {
+        return toast.error('Please try again later');
+      }
+    };
 
-return(
-<ul>
-      {data.results.map(item => (
-        <li key={item.id}>
-          <a href={item.poster_path}>{item.original_title}{item.original_name}</a>
-        </li>
-      ))}
-    </ul>
-)
+    fetchData();
+  }, []);
+
+  return (
+<TrendMovies data={data} location={location} />
+  );
 }
-export default Home
+export default Home;
