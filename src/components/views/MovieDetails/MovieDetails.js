@@ -6,7 +6,7 @@ import MovieDetailsCard from 'components/MovieDetailsCard/MovieDetailsCard';
 
 function MovieDetails() {
     const { moviesId } = useParams();
-    const [movies, setMovies] = useState(null);
+    const [movies, setMovies] = useState([]);
     console.log(movies)
     // const location = useLocation();
     // const backLinkHref = location.state?.from ?? '/';

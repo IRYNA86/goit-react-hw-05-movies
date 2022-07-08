@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import Home from './views/Home/Home';
 import Search from './views/Search/Search'
 import MovieDetails from './views/MovieDetails/MovieDetails';
-// import NotFound from './views/NotFound/NotFound'
+import NotFound from './views/NotFound/NotFound'
 
 
 export const App = () => {
@@ -16,7 +16,7 @@ export const App = () => {
 <Route path="/" element={<Home />} />
 <Route path="/movies" element={<Search />} />
 <Route path="movies/:moviesId" element={<MovieDetails />}/>
-{/* <Route path="*" element={<NotFound />} /> */}
+<Route path="*" element={<NotFound />} />
 </Routes> 
 
       

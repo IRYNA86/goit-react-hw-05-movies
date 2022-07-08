@@ -6,6 +6,7 @@ import TrendMovies from 'components/TrendMovies/TrendMovies'
 
 function Home() {
   const [data, setData] = useState({ results: [] });
+  console.log(data)
   const location = useLocation();
 
   useEffect(() => {
@@ -25,7 +26,10 @@ function Home() {
   }, []);
 
   return (
+    <>
+    <h1>Trending today</h1>
 <TrendMovies data={data} location={location} />
+</>
   );
 }
 export default Home;

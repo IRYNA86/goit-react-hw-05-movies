@@ -6,7 +6,7 @@ function TrendMovies({data, location}) {
         <ul>
         {data.results.map(item => (
           <li key={item.id}>
-            <NavLink to={`${item.id}`} state={{ from: location }}>
+            <NavLink to={`movies/${item.id}`} state={{ from: location }}>
               {item.original_title}
               {item.original_name}
             </NavLink>
