@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import * as api from 'servises/api';
+import CastReviews from 'components/CastReviews/CastReviews'
 import MovieDetailsCard from 'components/MovieDetailsCard/MovieDetailsCard';
+
 
 function MovieDetails() {
     const { moviesId } = useParams();
@@ -29,14 +31,14 @@ function MovieDetails() {
           }
         };
         fetchMoviesId();
+        console.log(fetchMoviesId())
       }, [moviesId]);
 
       return(
         <>
         {/* <BackLink to={backLinkHref}>Back</BackLink> */}
         <MovieDetailsCard movies={movies}/>
-        {/* {movies.id} */}
-        {/* <img src={`https://image.tmdb.org/t/p/w300${movies.poster_path}`} alt={movies.original_title}/> */}
+       <CastReviews/>
         </>
       )
     }

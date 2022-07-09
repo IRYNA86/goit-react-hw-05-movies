@@ -5,6 +5,7 @@ import Home from './views/Home/Home';
 import Search from './views/Search/Search'
 import MovieDetails from './views/MovieDetails/MovieDetails';
 import NotFound from './views/NotFound/NotFound'
+import Cast from './Cast/Cast'
 
 
 export const App = () => {
@@ -15,7 +16,10 @@ export const App = () => {
     <Routes>
 <Route path="/" element={<Home />} />
 <Route path="/movies" element={<Search />} />
-<Route path="movies/:moviesId" element={<MovieDetails />}/>
+<Route path="movies/:moviesId" element={<MovieDetails />}>
+<Route path="cast" element={<Cast />} />
+</Route>
+
 <Route path="*" element={<NotFound />} />
 </Routes> 
 

@@ -21,3 +21,16 @@ export const getMoviesId = async moviesId => {
   console.log(response);
   return response.data;
 };
+export const getCastMoviesId = async moviesId => {
+  const response = await axios.get(
+    `/movie/${moviesId}/credits?api_key=${api_key}`
+  );
+  return response.data.cast;
+};
+
+export const getReviewsMoviesId = async moviesId => {
+  const response = await axios.get(
+    `/movie/${moviesId}/reviews?api_key=${api_key}`
+  );
+  return response.data.results;
+};
