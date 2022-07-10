@@ -1,8 +1,6 @@
 function MovieDetailsCard({ movies }) {
   const { id, poster_path, original_title, overview, vote_average } = movies;
 
-  console.log(movies);
-
   const baseImgURl = 'https://image.tmdb.org/t/p/w300';
   const defaultImgUrl =
     'https://st.depositphotos.com/1808604/1386/i/600/depositphotos_13860360-stock-photo-three-balalaika.jpg';

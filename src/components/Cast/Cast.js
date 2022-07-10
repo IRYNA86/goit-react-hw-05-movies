@@ -8,6 +8,7 @@ function Cast () {
   const { moviesId } = useParams();
   const [cast, setCast] = useState([]);
 
+
   useEffect(() => {
     const fetchMovieCast = async () => {
       try {
@@ -20,17 +21,17 @@ function Cast () {
         setCast(movieCast);
       } catch (error) {
         return toast.error(
-          `Whoops something went wrong, please try again later 🙅‍♂️`
+          'Please try again'
         );
       }
     };
     fetchMovieCast();
-    console.log(fetchMovieCast())
+    
   }, [moviesId]);
 
   const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w200';
   const DEFAULT_IMG =
-    'https://www.pngkey.com/png/full/121-1219231_user-default-profile.png';
+  'https://st.depositphotos.com/1808604/1386/i/600/depositphotos_13860360-stock-photo-three-balalaika.jpg';
 
   return (
     <div>

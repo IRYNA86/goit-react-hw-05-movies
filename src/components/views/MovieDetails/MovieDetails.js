@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Outlet  } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import * as api from 'servises/api';
 import CastReviews from 'components/CastReviews/CastReviews'
@@ -9,7 +9,7 @@ import MovieDetailsCard from 'components/MovieDetailsCard/MovieDetailsCard';
 function MovieDetails() {
     const { moviesId } = useParams();
     const [movies, setMovies] = useState([]);
-    console.log(movies)
+    
     // const location = useLocation();
     // const backLinkHref = location.state?.from ?? '/';
 
@@ -17,7 +17,7 @@ function MovieDetails() {
         const fetchMoviesId = async () => {
           try {
             const moviesDetails = await api.getMoviesId(moviesId);
-    console.log(moviesDetails)
+    
             if (!moviesDetails) {
               
               return;
@@ -31,7 +31,7 @@ function MovieDetails() {
           }
         };
         fetchMoviesId();
-        console.log(fetchMoviesId())
+        
       }, [moviesId]);
 
       return(
@@ -39,6 +39,7 @@ function MovieDetails() {
         {/* <BackLink to={backLinkHref}>Back</BackLink> */}
         <MovieDetailsCard movies={movies}/>
        <CastReviews/>
+       <Outlet />
         </>
       )
     }
