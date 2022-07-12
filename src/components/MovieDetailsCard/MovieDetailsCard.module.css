@@ -1,0 +1,7 @@
+.movieCard {
+    display: flex;
+    }
+.cardText {
+    margin-left: 15px;
+    padding: 15px;
+}

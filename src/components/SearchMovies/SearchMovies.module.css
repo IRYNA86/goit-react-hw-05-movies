@@ -1,0 +1,15 @@
+.searchMovies{
+    margin-top: 15px;
+}
+.item{
+    font-size: 15px;
+    margin-bottom: 5px;
+   }
+   .getSearchMovies{
+   
+        color: rgba(90, 32, 90, 0.897);
+    }
+    .getSearchMovies:hover{
+        color: aqua;
+    }
+   

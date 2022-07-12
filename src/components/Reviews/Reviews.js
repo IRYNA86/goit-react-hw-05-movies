@@ -1,4 +1,5 @@
 import * as api from 'servises/api';
+import s from '../Reviews/Reviews.module.css'
 
 const { useState, useEffect } = require('react');
 const { useParams } = require('react-router-dom');
@@ -27,8 +28,8 @@ function Reviews() {
       <ul>
         {reviews.map(({ author, content }) => (
           <li key={author}>
-            <h2>Author: {author}</h2>
-            <p>{content}</p>
+            <h2 className={s.autor}>Author: {author}</h2>
+            <p className={s.content}>{content}</p>
           </li>
         ))}
       </ul>

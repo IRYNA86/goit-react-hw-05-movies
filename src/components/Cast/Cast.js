@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as api from 'servises/api';
+import s from '../Cast/Cast.module.css'
 
 function Cast() {
   const { moviesId } = useParams();
@@ -12,11 +13,9 @@ function Cast() {
     const fetchMovieCast = async () => {
       try {
         const movieCast = await api.getCastMoviesId(moviesId);
-
         if (movieCast.length === 0) {
           return;
         }
-
         setCast(movieCast);
       } catch (error) {
         return toast.error('Please try again');
@@ -30,8 +29,8 @@ function Cast() {
     'https://st.depositphotos.com/1808604/1386/i/600/depositphotos_13860360-stock-photo-three-balalaika.jpg';
 
   return (
-    <div>
-      <ul>
+    <>
+      <ul  className={s.castImages}>
         {cast.map(({ cast_id, profile_path, name, character }) => (
           <li key={cast_id}>
             <img
@@ -42,12 +41,12 @@ function Cast() {
               width="200"
               height="250"
             />
-            <p>{name}</p>
-            <p>Character: {character}</p>
+            <p className={s.name}>{name}</p>
+            <p className={s.character}>Character: {character}</p>
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 }
 

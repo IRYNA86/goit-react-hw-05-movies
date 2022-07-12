@@ -33,7 +33,7 @@ function SearchForm({ setSearchParams }) {
           name='query'
           autoComplete="off"
           autoFocus
-          placeholder="Search images and photos"
+          placeholder="Search movies"
           value={nameImages}
           onChange={handleNameChange}
         />

@@ -1,15 +1,16 @@
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Navigation from './Navigation/Navigation';
 import { ToastContainer } from 'react-toastify';
-import Home from './views/Home/Home';
-import Search from './views/Search/Search';
-import MovieDetails from './views/MovieDetails/MovieDetails';
-import NotFound from './views/NotFound/NotFound';
-import Cast from './Cast/Cast';
-import Reviews from './Reviews/Reviews';
 import Loader from './Loader/Loader';
 import s from '../components/app.module.css'
+
+const Navigation = lazy(() => import('./Navigation/Navigation'));
+const Home = lazy(() => import('./views/Home/Home'));
+const Search = lazy(() => import('./views/Search/Search'));
+const MovieDetails = lazy(() => import('./views/MovieDetails/MovieDetails'));
+const NotFound = lazy(() => import('./views/NotFound/NotFound'));
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'))
 
 export const App = () => {
   return (

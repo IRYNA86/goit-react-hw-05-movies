@@ -1,5 +1,5 @@
-import { NavLink, useParams, useLocation} from 'react-router-dom';
-
+import { NavLink, useParams, useLocation } from 'react-router-dom';
+import s from '../CastReviews/CastReviews.module.css'
 
 const CastReviews = () => {
   const { moviesId } = useParams();
@@ -8,11 +8,10 @@ const CastReviews = () => {
 
   return (
     <div>
-      <h3>Additional info</h3>
+      <h3>Additional information</h3>
       <ul>
-        <li>
+        <li className={s.cast}>
           <NavLink
-            
             to={`/movies/${moviesId}/cast`}
             state={{ from: backLinkHref }}
           >
@@ -21,7 +20,6 @@ const CastReviews = () => {
         </li>
         <li>
           <NavLink
-            
             to={`/movies/${moviesId}/reviews`}
             state={{ from: backLinkHref }}
           >
