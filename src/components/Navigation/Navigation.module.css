@@ -1,8 +1,15 @@
+.navigation {
+padding: 15px;
+/* border-bottom: solid 2px; */
+border-left: solid 2px rgb(122, 134, 79);
+box-shadow: 2px 2px rgb(122, 134, 79), 1em 0 0.4em olive
+}
 .home,
 .movies {
     text-decoration: none;
     font-size: 20px;
-    color: aqua;
+    font-weight: bold;
+    color: rgb(110, 128, 33);
 }
 .home {
     margin-right: 15px;
@@ -10,6 +17,7 @@
 .activeLink {
     text-decoration: none;
     font-size: 20px;
-    color:blue;
+    font-weight: bold;
+    color:rgb(67, 26, 87);
     margin-right: 15px;
 }

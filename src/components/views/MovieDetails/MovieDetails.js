@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
-import { useParams, Outlet  } from 'react-router-dom';
+import { useParams, Outlet, useLocation, Link   } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import * as api from 'servises/api';
 import CastReviews from 'components/CastReviews/CastReviews'
 import MovieDetailsCard from 'components/MovieDetailsCard/MovieDetailsCard';
+import { faReplyAll } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 function MovieDetails() {
     const { moviesId } = useParams();
     const [movies, setMovies] = useState([]);
-    
-    // const location = useLocation();
-    // const backLinkHref = location.state?.from ?? '/';
+    const location = useLocation();
+    const backLinkHref = location.state?.from ?? '/';
 
     useEffect(() => {
         const fetchMoviesId = async () => {
@@ -36,7 +37,7 @@ function MovieDetails() {
 
       return(
         <>
-        {/* <BackLink to={backLinkHref}>Back</BackLink> */}
+        <Link to={backLinkHref}><FontAwesomeIcon icon={faReplyAll} /> Back</Link>
         <MovieDetailsCard movies={movies}/>
        <CastReviews/>
        <Outlet />

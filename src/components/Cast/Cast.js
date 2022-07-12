@@ -4,10 +4,9 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as api from 'servises/api';
 
-function Cast () {
+function Cast() {
   const { moviesId } = useParams();
   const [cast, setCast] = useState([]);
-
 
   useEffect(() => {
     const fetchMovieCast = async () => {
@@ -20,18 +19,15 @@ function Cast () {
 
         setCast(movieCast);
       } catch (error) {
-        return toast.error(
-          'Please try again'
-        );
+        return toast.error('Please try again');
       }
     };
     fetchMovieCast();
-    
   }, [moviesId]);
 
-  const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w200';
-  const DEFAULT_IMG =
-  'https://st.depositphotos.com/1808604/1386/i/600/depositphotos_13860360-stock-photo-three-balalaika.jpg';
+  const baseImgUrl = 'https://image.tmdb.org/t/p/w200';
+  const defaultImg =
+    'https://st.depositphotos.com/1808604/1386/i/600/depositphotos_13860360-stock-photo-three-balalaika.jpg';
 
   return (
     <div>
@@ -40,13 +36,11 @@ function Cast () {
           <li key={cast_id}>
             <img
               src={
-                profile_path
-                  ? `${BASE_IMG_URL}${profile_path}`
-                  : `${DEFAULT_IMG}`
+                profile_path ? `${baseImgUrl}${profile_path}` : `${defaultImg}`
               }
               alt=""
               width="200"
-              height="300"
+              height="250"
             />
             <p>{name}</p>
             <p>Character: {character}</p>
@@ -55,6 +49,6 @@ function Cast () {
       </ul>
     </div>
   );
-};
+}
 
 export default Cast;

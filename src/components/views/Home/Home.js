@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import * as api from 'servises/api';
-import { useLocation  } from 'react-router-dom';
-import TrendMovies from 'components/TrendMovies/TrendMovies'
+import { useLocation } from 'react-router-dom';
+import TrendMovies from 'components/TrendMovies/TrendMovies';
+import s from '../Home/Home.module.css';
 
 function Home() {
   const [data, setData] = useState({ results: [] });
-  console.log(data)
   const location = useLocation();
 
   useEffect(() => {
@@ -21,15 +21,14 @@ function Home() {
         return toast.error('Please try again later');
       }
     };
-
     fetchData();
   }, []);
 
   return (
     <>
-    <h1>Trending today</h1>
-<TrendMovies data={data} location={location} />
-</>
+      <h1 className={s.title}>Trending today</h1>
+      <TrendMovies data={data} location={location} />
+    </>
   );
 }
 export default Home;

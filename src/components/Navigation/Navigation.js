@@ -4,7 +4,7 @@ import s from '../Navigation/Navigation.module.css';
 function Navigation() {
   return (
     <>
-      <nav>
+      <nav className={s.navigation}>
         <NavLink
           to="/"
           className={({ isActive }) => (isActive ? s.activeLink : s.home)}
