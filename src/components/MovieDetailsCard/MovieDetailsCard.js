@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types';
-import s from '../MovieDetailsCard/MovieDetailsCard.module.css'
+import PropTypes, { shape } from 'prop-types';
+import s from '../MovieDetailsCard/MovieDetailsCard.module.css';
 
 function MovieDetailsCard({ movies }) {
-  const { id, poster_path, original_title, overview, vote_average } = movies;
-
+  const { id, poster_path, original_title, overview, vote_average, genres} =
+    movies;
+  
   const baseImgURl = 'https://image.tmdb.org/t/p/w300';
   const defaultImgUrl =
     'https://st.depositphotos.com/1808604/1386/i/600/depositphotos_13860360-stock-photo-three-balalaika.jpg';
@@ -16,19 +17,19 @@ function MovieDetailsCard({ movies }) {
       />
       <div className={s.cardText}>
         <h2>{original_title}</h2>
-        <p>
-          User score: {vote_average} %
-        </p>
-        <h3>Overview</h3>
+        <p>User score: {vote_average} %</p>
+        <h3>Overview:</h3>
         <p>{overview}</p>
-        <h3>Genres</h3>
-        {/* <ul>
-          {genres.map(({ name }) => (
-            <li key={name}>
-              <p>{name}</p>
-            </li>
-          ))}
-        </ul> */}
+        <h3>Genres:</h3>
+       {genres && <ul>
+          {genres.map(genre => {
+            return (
+              <li key={genre.id} className={s.genres}>
+                <p>{genre.name}</p>
+              </li>
+            );
+          })}
+        </ul>}
       </div>
     </div>
   );
@@ -40,7 +41,13 @@ MovieDetailsCard.propTypes = {
     poster_path: PropTypes.string,
     vote_average: PropTypes.number.isRequired,
     overview: PropTypes.string.isRequired,
-    }),
+    genres: PropTypes.arrayOf(
+      shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+      })
+    ),
+  }),
 };
 
 export default MovieDetailsCard;

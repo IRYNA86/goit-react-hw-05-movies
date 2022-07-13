@@ -25,14 +25,14 @@ function Reviews() {
   }, [moviesId]);
   return (
     <div>
-      <ul>
+     {reviews.length > 0 ? <ul>
         {reviews.map(({ author, content }) => (
           <li key={author}>
             <h2 className={s.autor}>Author: {author}</h2>
             <p className={s.content}>{content}</p>
           </li>
         ))}
-      </ul>
+      </ul> : <p>Do not have the reviews</p>}
     </div>
   );
 }

@@ -30,6 +30,7 @@ function Cast() {
 
   return (
     <>
+    {cast.length > 0 ?
       <ul  className={s.castImages}>
         {cast.map(({ cast_id, profile_path, name, character }) => (
           <li key={cast_id}>
@@ -45,7 +46,7 @@ function Cast() {
             <p className={s.character}>Character: {character}</p>
           </li>
         ))}
-      </ul>
+      </ul> : <p>Do not have the cast</p>}
     </>
   );
 }
